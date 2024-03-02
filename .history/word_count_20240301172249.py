@@ -29,7 +29,6 @@ def clean_text(dataframe):
     dataframe = dataframe.copy()
     dataframe['text'] = dataframe['text'].str.lower()
     dataframe['text'] = dataframe['text'].str.replace(',', '').str.replace('.', '')
-    return dataframe
 
 
 def count_words(dataframe):
@@ -44,8 +43,6 @@ def count_words(dataframe):
             'count': sum
         }
     )
-    
-    return conteo
 
 
 def save_output(dataframe, output_filename):
@@ -63,7 +60,7 @@ def run(input_directory, output_filename):
     dataframe = count_words(dataframe)
     save_output(dataframe, output_filename)
 
-print(count_words(clean_text(load_input('input'))))
+print(load_input('input'))
 
 if __name__ == "__main__":
     run(
